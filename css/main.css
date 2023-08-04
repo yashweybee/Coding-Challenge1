@@ -55,6 +55,13 @@ body {
   display: flex;
   justify-content: center;
 }
+.navbar .container .menu {
+  display: flex;
+  justify-content: center;
+}
+.navbar .container .mobile-menu {
+  display: none;
+}
 .navbar a {
   text-decoration: none;
   cursor: pointer;
@@ -74,6 +81,12 @@ body {
 .navbar ul li {
   font-weight: bold;
   margin: 0 1em;
+}
+
+.mobile-menu-exit {
+  float: right;
+  cursor: pointer;
+  display: none;
 }
 
 .hero {
@@ -178,10 +191,11 @@ body {
 .latest-work .cards {
   color: var(--main-color);
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 .latest-work .cards .card {
   margin: 3em 3em;
+  width: 36em;
 }
 .latest-work .cards .card:hover {
   transform: scale(105%);
@@ -190,23 +204,72 @@ body {
   font-weight: bold;
 }
 
-.carousel {
-  background-color: rgb(239, 252, 252);
-  padding: 0 5em;
+.card-slider {
+  margin: auto;
 }
-.carousel .flickity-button {
-  display: none;
+
+.owl-slider {
+  margin: auto;
+  width: 90%;
 }
-.carousel .flickity-page-dots {
-  position: revert;
+.owl-dots button.owl-dot {
+  border: 1px solid black;
 }
-.carousel img {
-  width: 20em;
-  display: block;
-  height: 200px;
-  margin-right: 10px;
-  /* vertically center */
+
+.owl-nav button {
+  position: absolute;
+  top: 50%;
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.owl-nav button.owl-prev {
+  left: 0;
+}
+
+.owl-nav button.owl-next {
+  right: 0;
+}
+
+.owl-dots {
+  text-align: center;
+  padding-top: 15px;
+}
+
+.owl-dots button.owl-dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 3px;
+}
+
+.owl-dots button.owl-dot.active {
+  background-color: #000;
+}
+
+.owl-dots button.owl-dot:focus {
+  outline: none;
+}
+
+.owl-nav button {
+  position: absolute;
+  top: 50%;
   transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.38) !important;
+}
+
+span {
+  display: none;
+  font-size: 70px;
+  position: relative;
+  top: -5px;
+}
+
+.owl-nav button:focus {
+  outline: none;
 }
 
 .work {
@@ -267,7 +330,7 @@ body {
 }
 .footer .form .submit {
   position: absolute;
-  left: 11.5em;
+  left: 12em;
   color: white;
   border: none;
   background-color: rgb(8, 138, 95);
@@ -299,15 +362,23 @@ footer .container .second-foot ul li a {
   text-decoration: none;
   color: white;
 }
-footer .container .third-foot {
+footer .third-foot {
+  float: right;
   background-color: rgb(6, 134, 134);
   width: 4em;
   height: 2em;
   text-align: center;
+  margin-right: 2em;
 }
-footer .container .third-foot a {
+footer .third-foot a {
   color: white;
   text-decoration: none;
+}
+
+.mobile-menu-exit {
+  float: left;
+  margin: 0.5em;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -332,6 +403,12 @@ footer .container .third-foot a {
   }
   .footer .container > * {
     padding: 1em;
+  }
+  .footer .form {
+    font-size: 0.8em;
+  }
+  .footer .form .submit {
+    left: 10.3em;
   }
   .end-heading {
     padding: 5em 0em 0 0em;
@@ -373,6 +450,13 @@ footer .container .third-foot a {
     padding: 0;
     display: inline-block;
   }
+  .footer .form {
+    font-size: 0.8em;
+    width: 17em;
+  }
+  .footer .form .submit {
+    left: 10.3em;
+  }
   footer {
     font-size: 9px;
   }
@@ -400,6 +484,12 @@ footer .container .third-foot a {
   .work .btn {
     margin-top: 0em;
   }
+  .small-heading h2 {
+    font-size: 2em;
+  }
+  .small-heading p {
+    font-size: 0.7em;
+  }
   .features {
     height: 57em;
   }
@@ -407,5 +497,118 @@ footer .container .third-foot a {
     margin-bottom: 1em;
     padding: 0;
     display: inline-block;
+  }
+  footer {
+    height: 6em;
+  }
+  footer .container {
+    padding-top: 1em;
+    display: block;
+  }
+  footer .container ul {
+    margin-top: 1em;
+    padding-left: 0;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .header {
+    font-size: 10px;
+    height: 3em;
+  }
+  .header .container {
+    padding-top: 0.6em;
+  }
+  .navbar {
+    margin: 1em;
+  }
+  .navbar .container {
+    position: relative;
+  }
+  .navbar .container .mobile-menu-exit {
+    display: block;
+  }
+  .navbar .container .logo {
+    font-size: 3em;
+  }
+  .navbar .menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30em;
+  }
+  .navbar .menu ul {
+    display: block;
+  }
+  .hero .overlay-text h1 {
+    font-size: 3em;
+  }
+  .hero .overlay-text p {
+    font-size: 1em;
+  }
+  .small-heading {
+    padding: 5em 2em;
+  }
+  .features {
+    height: 65em;
+  }
+  .footer .form .submit {
+    left: 13.5em;
+  }
+  .footer .form {
+    width: 20em;
+  }
+  footer {
+    height: 28em;
+  }
+  footer .container {
+    flex-direction: column;
+  }
+  footer .container ul {
+    flex-direction: column;
+  }
+  footer .container ul li {
+    list-style: none;
+  }
+}
+@media only screen and (max-width: 447px) {
+  .navbar a {
+    color: #fff;
+  }
+  .navbar .container nav {
+    position: fixed;
+    left: 0em;
+    top: 0;
+    z-index: 999;
+    background: black;
+    width: 66%;
+    height: 100vh;
+    padding: 1em;
+  }
+  .navbar .container nav ul li {
+    text-align: start;
+  }
+  .navbar .container nav ul li a {
+    font-size: 28px;
+  }
+  .latest-work .cards {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .latest-work .cards .card {
+    margin: 1em 0;
+    width: 20em;
+  }
+  .features {
+    height: 75em;
+  }
+}
+@media only screen and (max-width: 410px) {
+  .features {
+    height: 75em;
+  }
+  .footer .container .second-foot {
+    font-size: 0.9em;
   }
 }/*# sourceMappingURL=main.css.map */

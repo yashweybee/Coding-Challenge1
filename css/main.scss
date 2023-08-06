@@ -70,10 +70,6 @@ body {
             display: flex;
             justify-content: center;
         }
-
-        .mobile-menu {
-            display: none;
-        }
     }
 
     a {
@@ -100,13 +96,6 @@ body {
             margin: 0 1em;
         }
     }
-}
-
-.mobile-menu-exit {
-    float: right;
-    cursor: pointer;
-    display: none;
-
 }
 
 .hero {
@@ -482,10 +471,9 @@ footer {
     }
 }
 
+.mobile-menu,
 .mobile-menu-exit {
-    float: left;
-    margin: .5em;
-    cursor: pointer;
+    display: none;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -707,14 +695,6 @@ footer {
         .container {
             position: relative;
 
-            // .mobile-menu {
-            //     display: block;
-            // }
-
-            .mobile-menu-exit {
-                display: block;
-            }
-
             .logo {
                 font-size: 3em;
             }
@@ -782,41 +762,6 @@ footer {
 
 @media only screen and (max-width: 447px) {
 
-    .navbar {
-
-        // display: block;
-        a {
-            color: #fff;
-        }
-
-        .container {
-
-            // display: flex;
-
-            nav {
-                // display: none;
-                position: fixed;
-                left: 0em;
-                top: 0;
-                z-index: 999;
-                background: black;
-                width: 66%;
-                height: 100vh;
-                padding: 1em;
-
-
-                ul li {
-
-                    a {
-                        font-size: 28px;
-                    }
-
-                    text-align: start;
-                }
-            }
-        }
-    }
-
     .latest-work {
         .cards {
             flex-direction: column;
@@ -832,6 +777,72 @@ footer {
 
     .features {
         height: 75em;
+    }
+
+
+    .mobile-menu,
+    .mobile-menu-exit {
+        display: block;
+    }
+
+    .navbar {
+
+        .container {
+            display: flex;
+            flex-wrap: nowrap;
+
+            justify-content: space-around;
+
+            .menu {
+                display: block;
+                width: auto;
+            }
+        }
+
+        li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: .5em;
+            font-size: 1.3em;
+            text-align: right;
+
+            &:hover {
+                font-weight: bold;
+            }
+        }
+    }
+
+    nav {
+        position: fixed;
+        z-index: 999;
+        background-color: #20272E;
+        left: 0;
+        top: 0;
+        width: 66%;
+        height: 100vh;
+        padding: 1em;
+
+        ul.primary-nav {
+            margin-top: 5em;
+        }
+
+
+    }
+
+    .mobile-menu-exit {
+        float: left;
+        margin: .5em;
+        cursor: pointer;
+    }
+
+    nav {
+        display: none;
+    }
+
+    nav.mobile-menu {
+        // background-color: red;
+        display: block;
     }
 }
 

@@ -59,9 +59,6 @@ body {
   display: flex;
   justify-content: center;
 }
-.navbar .container .mobile-menu {
-  display: none;
-}
 .navbar a {
   text-decoration: none;
   cursor: pointer;
@@ -81,12 +78,6 @@ body {
 .navbar ul li {
   font-weight: bold;
   margin: 0 1em;
-}
-
-.mobile-menu-exit {
-  float: right;
-  cursor: pointer;
-  display: none;
 }
 
 .hero {
@@ -375,10 +366,9 @@ footer .third-foot a {
   text-decoration: none;
 }
 
+.mobile-menu,
 .mobile-menu-exit {
-  float: left;
-  margin: 0.5em;
-  cursor: pointer;
+  display: none;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -524,9 +514,6 @@ footer .third-foot a {
   .navbar .container {
     position: relative;
   }
-  .navbar .container .mobile-menu-exit {
-    display: block;
-  }
   .navbar .container .logo {
     font-size: 3em;
   }
@@ -572,25 +559,6 @@ footer .third-foot a {
   }
 }
 @media only screen and (max-width: 447px) {
-  .navbar a {
-    color: #fff;
-  }
-  .navbar .container nav {
-    position: fixed;
-    left: 0em;
-    top: 0;
-    z-index: 999;
-    background: black;
-    width: 66%;
-    height: 100vh;
-    padding: 1em;
-  }
-  .navbar .container nav ul li {
-    text-align: start;
-  }
-  .navbar .container nav ul li a {
-    font-size: 28px;
-  }
   .latest-work .cards {
     flex-direction: column;
     justify-content: center;
@@ -602,6 +570,54 @@ footer .third-foot a {
   }
   .features {
     height: 75em;
+  }
+  .mobile-menu,
+  .mobile-menu-exit {
+    display: block;
+  }
+  .navbar .container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+  }
+  .navbar .container .menu {
+    display: block;
+    width: auto;
+  }
+  .navbar li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 0.5em;
+    font-size: 1.3em;
+    text-align: right;
+  }
+  .navbar li a:hover {
+    font-weight: bold;
+  }
+  nav {
+    position: fixed;
+    z-index: 999;
+    background-color: #20272E;
+    left: 0;
+    top: 0;
+    width: 66%;
+    height: 100vh;
+    padding: 1em;
+  }
+  nav ul.primary-nav {
+    margin-top: 5em;
+  }
+  .mobile-menu-exit {
+    float: left;
+    margin: 0.5em;
+    cursor: pointer;
+  }
+  nav {
+    display: none;
+  }
+  nav.mobile-menu {
+    display: block;
   }
 }
 @media only screen and (max-width: 410px) {
